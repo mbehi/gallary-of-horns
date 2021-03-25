@@ -1,5 +1,6 @@
 import React from 'react';
 import HornedBeasts from './HornedBeasts';
+import data from 
 
 class Main extends React.Component {
   render() {
