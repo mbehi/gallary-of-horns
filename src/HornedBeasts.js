@@ -1,7 +1,7 @@
 import React from 'react';
 
 class HornedBeasts extends React.Component {
-  render () {
+  render() {
     return (
       <div>
         <h2>{this.props.title}</h2>

@@ -4,19 +4,17 @@ import data from './data.json';
 
 class Main extends React.Component {
   render() {
-    let beastArray =[];
+    let beastArray = [];
     data.forEach((animal) => {
       beastArray.push(
-        <HornedBeasts 
-          name = {animal.keyword}
-          title = {animal.title}
-          imageUrl = {animal.image_url}
-          description = {animal.description}
+        <HornedBeasts
+          name={animal.keyword}
+          title={animal.title}
+          imageUrl={animal.image_url}
+          description={animal.description}
         />
       );
     });
-    
-    
     return (
       <main>
         {beastArray}
