@@ -12,4 +12,9 @@ class HornedBeasts extends React.Component {
   }
 }
 
+class Toggle extends React.Component {
+  
+}
+
+
 export default HornedBeasts;
