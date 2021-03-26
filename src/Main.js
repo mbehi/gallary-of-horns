@@ -1,5 +1,10 @@
 import React from 'react';
+
+import CardColumns from 'react-bootstrap/CardColumns';
 import HornedBeasts from './HornedBeasts';
+
+import './Main.css'
+
 import data from './data.json';
 
 class Main extends React.Component {
@@ -8,14 +13,16 @@ class Main extends React.Component {
       return <HornedBeasts
           name={animal.keyword}
           title={animal.title}
-          imageUrl={animal.image_url}
+          image_url={animal.image_url}
           description={animal.description}
         />
     });
     return (
-      <main id="demo-test">
+     <main id="demo">
+        <CardColumns>
         {beastArray}
-      </main>
+        </CardColumns>
+     </main>
     );
   }
 }

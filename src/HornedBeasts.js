@@ -1,6 +1,6 @@
 import React from 'react';
+import Card from 'react-bootstrap/Card';
 import Button from 'react-bootstrap/Button';
-import { AiFillHeart } from 'react-icons/ai';
 
 
 class HornedBeasts extends React.Component {
@@ -11,33 +11,28 @@ class HornedBeasts extends React.Component {
       numberOfHearts: 0
     }
   }
-
-
   buttonClicked = () => {
     this.setState({
       numberOfHearts: this.state.numberOfHearts + 1
     });
   }
-
-
   render() {
     return (
-      <div>
-        <h2>{this.props.title}</h2>
-        <img onClick={this.buttonClicked} className="animal-pictures" src={this.props.image_url} alt={this.props.keyword} title={this.props.title} />
-        <div><AiFillHeart />{this.state.numberOfHearts}</div>
-        <p>{this.props.description}</p>
-        <Button onClick={this.buttonClicked} variant="secondary" size="lg block">
-          This is my favorite Horned Beast!
-        </Button>
-      </div>
+      <Card style={{ width: '25rem' }}>
+        <Card.Img variant="top" src={this.props.image_url} style={{ width: '90%' }} />
+        <Card.Body>
+          <Card.Title>{this.props.title}</Card.Title>
+          <Card.Text>
+            {this.props.description}
+            {/* <AiFillHeart />{this.state.numberOfHearts} */}
+          </Card.Text>
+          <Button onClick={this.buttonClicked} variant="secondary" size="lg block">
+            This is my favorite Horned Beast!
+           </Button>
+        </Card.Body>
+      </Card>
     );
   }
 }
-
-class Toggle extends React.Component {
-
-}
-
 
 export default HornedBeasts;
