@@ -1,26 +1,29 @@
 import React from 'react';
+import CardColumns from 'react-bootstrap/CardColumns';
 import HornedBeasts from './HornedBeasts';
-import data from './data.json';
+import './Main.css';
+
 
 class Main extends React.Component {
-  render() {
-    let beastArray = [];
-    data.forEach((animal) => {
-      beastArray.push(
-        <HornedBeasts
-          name={animal.keyword}
-          title={animal.title}
-          imageUrl={animal.image_url}
-          description={animal.description}
-        />
-      );
-    });
-    return (
-      <main>
-        {beastArray}
-      </main>
-    );
-  }
-}
+    render () {
+      let beastArray = this.props.beasts.map((beast, index) => (
+           <HornedBeasts
+           name={beast.keyword}
+           title={beast.title}
+           image_url={beast.image_url}
+           description={beast.description}
+           key={index}
+          />
+      ));
+
+          return (
+          <main id="demo">
+              <CardColumns>
+              {beastArray}
+              </CardColumns>
+          </main>
+          );
+        }
+      }
 
 export default Main;
