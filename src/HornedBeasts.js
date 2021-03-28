@@ -1,12 +1,11 @@
 import React from 'react';
 import Card from 'react-bootstrap/Card';
 import Button from 'react-bootstrap/Button';
-
+// import { AiFillHeart } from 'react-icon/ai';
 
 class HornedBeasts extends React.Component {
   constructor(props) {
     super(props);
-
     this.state = {
       numberOfHearts: 0
     }
@@ -15,6 +14,11 @@ class HornedBeasts extends React.Component {
     this.setState({
       numberOfHearts: this.state.numberOfHearts + 1
     });
+    this.props.handleClick({
+      title: this.props.title,
+      description: this.props.description,
+      image_url: this.props.image_url
+    })
   }
   render() {
     return (
@@ -24,7 +28,9 @@ class HornedBeasts extends React.Component {
           <Card.Title>{this.props.title}</Card.Title>
           <Card.Text>
             {this.props.description}
-            {/* <AiFillHeart />{this.state.numberOfHearts} */}
+          </Card.Text>
+          <Card.Text>
+            {this.state.numberOfHearts}
           </Card.Text>
           <Button onClick={this.buttonClicked} variant="secondary" size="lg block">
             This is my favorite Horned Beast!

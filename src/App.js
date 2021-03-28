@@ -3,10 +3,11 @@ import './App.css';
 import Header from './Header';
 import Main from './Main';
 import Footer from './Footer';
+import SelectedBeast from './SelectedBeast';
 
 import data from './data.json'
 
-console.log("imported data", data);
+// console.log("imported data", data);
 class App extends React.Component {
   constructor(props) {
     super(props);
@@ -14,7 +15,6 @@ class App extends React.Component {
       show: false,
       beast: {}
     }
-    console.log("this is state", this.state)
   }
   
   showBeastInModal = (clickedBeast) => {
@@ -24,7 +24,12 @@ class App extends React.Component {
     })
   }
   
-  // hideBeastInModal = ()
+  hideBeastInModal = () => {
+    this.setState({
+      show: true,
+      beast: {},
+    })
+  }
   
   render() {
     return (
@@ -32,7 +37,12 @@ class App extends React.Component {
         <Header />
         <Main 
           beasts={data}
-
+          handleClick={this.showBeastInModal}
+        />
+        <SelectedBeast 
+          show={this.state.show}
+          hideBeast={this.hideBeastInModal}
+          beast={this.state.beast}
         />
         <Footer />
       </div>
