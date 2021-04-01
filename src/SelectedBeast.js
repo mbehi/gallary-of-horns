@@ -3,8 +3,10 @@ import Modal from 'react-bootstrap/Modal';
 import Button from 'react-bootstrap/Button';
 
 class SelectedBeast extends React.Component {
+
   render() {
     return (
+     <div id="beast-modal">
       <Modal show={this.props.show} onHide={this.props.hideBeastInModal}>
         <Modal.Header closeButton>
           <Modal.Title>{this.props.title}</Modal.Title>
@@ -18,6 +20,7 @@ class SelectedBeast extends React.Component {
           </Button>
         </Modal.Footer>
       </Modal>
+     </div>
     )
   }
 }

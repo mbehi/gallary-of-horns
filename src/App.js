@@ -7,20 +7,24 @@ import SelectedBeast from './SelectedBeast';
 
 import data from './data.json'
 
-// console.log("imported data", data);
 class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
+      displayModal: false,
+      data: data,
+      beastData: data,
+      SelectedBeast: {},
       show: false,
-      beast: {}
+      beast: {},
     }
   }
-  
+
   showBeastInModal = (clickedBeast) => {
+    const beast = data.find(beast => beast.title === name);
     this.setState({
-      show: true,
-      beast: clickedBeast,
+      selectBeast: beast,
+      displayProp: true,
     })
   }
   
@@ -31,12 +35,23 @@ class App extends React.Component {
     })
   }
   
+  filterHornBeast = (horns) => {
+    if(horns === "all") {
+      return this.setState({})
+    } else {
+      const array = this.state.data.filter( element => element.horns === horns)
+      this.setState({beastData: array})
+    }
+  }
+
   render() {
     return (
       <div>
         <Header />
         <Main 
+          showBeastInModal={this.showBeastInModal}
           beasts={data}
+          filterHornBeast={this.filterHornBeast}
           handleClick={this.showBeastInModal}
         />
         <SelectedBeast 
