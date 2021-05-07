@@ -21,7 +21,7 @@ class App extends React.Component {
   }
 
   showBeastInModal = (clickedBeast) => {
-    const beast = data.find(beast => beast.title === name);
+    const beast = data.find(beast => beast.title === clickedBeast);
     this.setState({
       selectBeast: beast,
       displayProp: true,

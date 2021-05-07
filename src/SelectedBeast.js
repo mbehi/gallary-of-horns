@@ -7,7 +7,15 @@ class SelectedBeast extends React.Component {
   render() {
     return (
      <div id="beast-modal">
-      <Modal show={this.props.show} onHide={this.props.hideBeastInModal}>
+      <Modal 
+        show={this.props.show} 
+        onHide={this.props.hideBeastInModal}
+        size="lg"
+        aria-labelledby="contained-modal-title-vcenter"
+        centered
+        >
+
+        
         <Modal.Header closeButton>
           <Modal.Title>{this.props.title}</Modal.Title>
         </Modal.Header>
