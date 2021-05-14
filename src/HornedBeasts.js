@@ -1,7 +1,5 @@
 import React from 'react';
 import Card from 'react-bootstrap/Card';
-import Button from 'react-bootstrap/Button';
-// import { AiFillHeart } from 'react-icon/ai';
 
 class HornedBeasts extends React.Component {
   constructor(props) {
@@ -10,6 +8,7 @@ class HornedBeasts extends React.Component {
       numberOfHearts: 0
     }
   }
+
   buttonClicked = () => {
     this.setState({
       numberOfHearts: this.state.numberOfHearts + 1
@@ -20,21 +19,19 @@ class HornedBeasts extends React.Component {
       image_url: this.props.image_url
     })
   }
+
   render() {
     return (
       <Card style={{ width: '25rem' }}>
-        <Card.Img variant="top" src={this.props.image_url} style={{ width: '90%' }} />
+        <Card.Img onCLick={this.buttonClicked} variant="top" src={this.props.image_url} style={{ width: '90%' }} />
         <Card.Body>
           <Card.Title>{this.props.title}</Card.Title>
           <Card.Text>
             {this.props.description}
           </Card.Text>
           <Card.Text>
-            {this.state.numberOfHearts}
+            🎱 {this.state.numberOfHearts}
           </Card.Text>
-          <Button onClick={this.buttonClicked} variant="secondary" size="lg block">
-            This is my favorite Horned Beast!
-           </Button>
         </Card.Body>
       </Card>
     );
