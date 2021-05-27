@@ -4,8 +4,11 @@ import Header from './Header';
 import Main from './Main';
 import Footer from './Footer';
 import SelectedBeast from './SelectedBeast';
+import 'bootstrap/dist/css/bootstrap.min.css';
+
 
 import data from './data.json'
+import HornSelectionDropdown from './HornSelectionDropdown';
 
 class App extends React.Component {
   constructor(props) {
@@ -23,38 +26,44 @@ class App extends React.Component {
   showBeastInModal = (clickedBeast) => {
     const beast = data.find(beast => beast.title === clickedBeast);
     this.setState({
-      selectBeast: beast,
+      beast,
       displayProp: true,
     })
   }
-  
+
   hideBeastInModal = () => {
     this.setState({
-      show: true,
-      beast: {},
+      show: false,
     })
+  }
+
+  selectedHornValue = (e) => {
+    e.preventDefault()
   }
   
   filterHornBeast = (horns) => {
-    if(horns === "all") {
+    if (horns === "all") {
       return this.setState({})
     } else {
-      const array = this.state.data.filter( element => element.horns === horns)
-      this.setState({beastData: array})
+      const array = this.state.data.filter(element => element.horns === horns)
+      this.setState({ beastData: array })
     }
   }
 
   render() {
     return (
-      <div>
+      <div id="app">
         <Header />
-        <Main 
+        <HornSelectionDropdown
+          filterHornBeast={this.filterHornBeast}
+        />
+        <Main
           showBeastInModal={this.showBeastInModal}
           beasts={data}
           filterHornBeast={this.filterHornBeast}
           handleClick={this.showBeastInModal}
         />
-        <SelectedBeast 
+        <SelectedBeast
           show={this.state.show}
           hideBeast={this.hideBeastInModal}
           beast={this.state.beast}

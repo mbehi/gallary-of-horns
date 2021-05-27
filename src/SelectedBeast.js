@@ -17,10 +17,10 @@ class SelectedBeast extends React.Component {
 
         
         <Modal.Header closeButton>
-          <Modal.Title>{this.props.title}</Modal.Title>
+          <Modal.Title id="contained-modal-tite-vcenter">{this.props.title}</Modal.Title>
         </Modal.Header>
         <Modal.Body>
-          <img src={this.props.beast.image_url} alt={this.props.beast.title} />
+          <img width={500} src={this.props.beast.image_url} alt={this.props.beast.description} title={this.props.beast.title} />
         </Modal.Body>
         <Modal.Footer>
           <Button variant="primary" onClick={this.props.hideBeast}>Close
@@ -32,6 +32,5 @@ class SelectedBeast extends React.Component {
     )
   }
 }
-
 
 export default SelectedBeast;
